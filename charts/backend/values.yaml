@@ -1,0 +1,24 @@
+replicaCount: 2
+
+image:
+  repository: tahakhadraoui/ppp-backend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3001
+
+env:
+  DB_HOST: "my-devops-project-rds.ck3uiqk2sub0.us-east-1.rds.amazonaws.com"
+  DB_DATABASE: "Driblly"
+  FLASK_API_URL: "http://flask-service:5000/predict"
+  JWT_SECRET: "your_jwt_secret_key"
+  JWT_REFRESH_SECRET: "your_jwt_refresh_secret_key"
+  DB_PORT: 5432
+
+secrets:
+  DB_USERNAME: postgres
+  DB_PASSWORD: postgres1
+  

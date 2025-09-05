@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}
+          env:
+            - name: DB_HOST
+              value: "{{ .Values.env.DB_HOST }}"
+            - name: DB_DATABASE
+              value: "{{ .Values.env.DB_DATABASE }}"
+            - name: FLASK_API_URL
+              value: "{{ .Values.env.FLASK_API_URL }}"
+            - name: JWT_SECRET
+              value: "{{ .Values.env.JWT_SECRET }}"
+            - name: JWT_REFRESH_SECRET
+              value: "{{ .Values.env.JWT_REFRESH_SECRET }}"
+            - name: DB_PORT
+              value: "{{ .Values.env.DB_PORT }}"
+          envFrom:
+            - secretRef:
+                name: {{ .Chart.Name }}-db-secret

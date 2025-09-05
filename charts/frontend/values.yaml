@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: tahakhadraoui/next-frontend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
+
+env:
+  NEXT_PUBLIC_API_URL: "http://a88787379ca6a471c827e6a75754b366-1842567789.us-east-1.elb.amazonaws.com"  # utiliser le DNS interne de Kubernetes

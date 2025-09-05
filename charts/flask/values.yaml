@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: tahakhadraoui/flask-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5000
+  targetPort: 5000
+
+env:
+  POSTGRES_HOST: "my-devops-project-rds.ck3uiqk2sub0.us-east-1.rds.amazonaws.com"
+  POSTGRES_DB: "Driblly"
+
+secrets:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
