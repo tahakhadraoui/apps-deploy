@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: tahakhadraoui/next-frontend
-  tag: latest
+  tag: 1.0
   pullPolicy: IfNotPresent
 
 service:
@@ -11,4 +11,4 @@ service:
   targetPort: 3000
 
 env:
-  NEXT_PUBLIC_API_URL: "http://a88787379ca6a471c827e6a75754b366-1842567789.us-east-1.elb.amazonaws.com"  # utiliser le DNS interne de Kubernetes
+  NEXT_PUBLIC_API_URL: "http://a8fef74e3c5774262996ac6cebd4537f-127422608.us-east-1.elb.amazonaws.com"  # utiliser le DNS interne de Kubernetes
