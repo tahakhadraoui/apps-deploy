@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: tahakhadraoui/flask-api
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 service:
   type: ClusterIP
