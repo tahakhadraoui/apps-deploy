@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: tahakhadraoui/next-frontend
-  tag: 30
+  tag: 32
   pullPolicy: Always
 
 service:
