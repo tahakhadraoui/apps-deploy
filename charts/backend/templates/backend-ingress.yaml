@@ -4,17 +4,25 @@ metadata:
   name: footup-backend-ingress
   namespace: my-namespace
   annotations:
-    kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
-        - backend.44.208.50.112.nip.io
+        - backend.3.208.59.96.sslip.io
       secretName: footup-backend-tls
   rules:
-    - host: backend.44.208.50.112.nip.io
+    - host: backend.3.208.59.96.sslip.io
       http:
         paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:

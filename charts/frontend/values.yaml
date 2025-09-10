@@ -11,4 +11,4 @@ service:
   targetPort: 3000
 
 env:
-  NEXT_PUBLIC_API_URL: "http://a8fef74e3c5774262996ac6cebd4537f-127422608.us-east-1.elb.amazonaws.com"  # utiliser le DNS interne de Kubernetes
+  NEXT_PUBLIC_API_URL: "https://backend.3.208.59.96.sslip.io" 
