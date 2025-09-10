@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: tahakhadraoui/ppp-backend
-  tag: 32
+  tag: 33
   pullPolicy: Always
 
 service:

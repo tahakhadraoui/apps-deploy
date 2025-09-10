@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: tahakhadraoui/flask-api
-  tag: 32
+  tag: 33
   pullPolicy: Always
 
 service:
